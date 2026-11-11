@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "minLength": 22
+    }
+  },
+  "required": [
+    "token"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/manage-exchange-request.schema.json",
+  "title": "manage-exchange-request"
+}

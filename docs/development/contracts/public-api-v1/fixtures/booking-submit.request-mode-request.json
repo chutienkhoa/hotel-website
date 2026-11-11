@@ -1,0 +1,20 @@
+{
+  "quoteId": "3f1b6d2e-8a4c-4e57-9b0a-2c5d7e1f4a90",
+  "checkInDate": "2026-09-30",
+  "checkOutDate": "2026-10-03",
+  "adults": 2,
+  "children": 0,
+  "bookingMode": "REQUEST",
+  "rooms": [
+    {
+      "roomTypeCode": "DBL-SEA",
+      "quantity": 1
+    }
+  ],
+  "acceptedCancellationPolicyRevision": 3,
+  "guest": {
+    "fullName": "Nguyễn Văn A",
+    "email": "guest@example.com",
+    "phone": "+84901234567"
+  }
+}

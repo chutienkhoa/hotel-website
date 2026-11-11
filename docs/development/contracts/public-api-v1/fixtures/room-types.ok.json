@@ -1,0 +1,28 @@
+{
+  "roomTypes": [
+    {
+      "roomTypeCode": "DBL-SEA",
+      "slug": "deluxe-double",
+      "name": "Deluxe Double",
+      "shortDescription": "Giường đôi, ban công",
+      "capacity": 2,
+      "coverImage": {
+        "imageId": "a1b2c3d4-0000-4000-8000-000000000001",
+        "altText": "Phòng Deluxe hướng biển",
+        "isCover": true,
+        "displayOrder": 0,
+        "contentVersion": 2,
+        "width": 1600,
+        "height": 1067
+      }
+    },
+    {
+      "roomTypeCode": "DELUXE-OCEAN-VIEW-KING-BALCONY-SUITE-001",
+      "slug": "family-suite",
+      "name": "Family Suite",
+      "shortDescription": "Hai phòng ngủ",
+      "capacity": 4,
+      "coverImage": null
+    }
+  ]
+}

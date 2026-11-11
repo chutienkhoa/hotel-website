@@ -1,0 +1,442 @@
+{
+  "description": "Room Type code compatibility corpus. v1Dto = verdict of the real RoomTypeCreateRequest bean validation (Hibernate Validator 8.0.2.Final, Java 21); v1Database = V57 CHECK ck_room_type_code_format (code = UPPER(code) AND code !~ '\\s') plus VARCHAR(64) on postgres:17-alpine; publicSchema = schemas/common.schema.json#/$defs/roomTypeCode. Required property: v1Dto.valid implies publicSchema.valid, and so does v1Database.valid for every non-empty code (the database alone would accept an empty code, which no application path can create).",
+  "entries": [
+    {
+      "id": "RTC-01",
+      "label": "seeded V1 code",
+      "code": "SINGLE",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-02",
+      "label": "seeded V1 code",
+      "code": "FAMILY",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-03",
+      "label": "hyphen: rejected by the Round 3 public schema",
+      "code": "DBL-SEA",
+      "note": "the code named in the Round 4 finding",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-04",
+      "label": "40 characters, hyphens",
+      "code": "DELUXE-OCEAN-VIEW-KING-BALCONY-SUITE-001",
+      "note": "40-char code named in the finding; old limit was 32",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-05",
+      "label": "1 character (minimum)",
+      "code": "A",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-06",
+      "label": "64 characters (V1 maximum)",
+      "code": "SUITE-0123456789012345678901234567890123456789012345678901234567",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-07",
+      "label": "65 characters (just over the V1 maximum)",
+      "code": "SUITE-0123456789012345678901234567890123456789012345678901234567X",
+      "note": "",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "max"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": false
+      }
+    },
+    {
+      "id": "RTC-08",
+      "label": "empty",
+      "code": "",
+      "note": "",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "required"
+        ]
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": false
+      }
+    },
+    {
+      "id": "RTC-09",
+      "label": "blank (space only)",
+      "code": " ",
+      "note": "",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "required",
+          "whitespace"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": false
+      }
+    },
+    {
+      "id": "RTC-10",
+      "label": "digits only",
+      "code": "101",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-11",
+      "label": "underscore",
+      "code": "DBL_SEA",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-12",
+      "label": "dot and slash",
+      "code": "DBL.SEA/2",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-13",
+      "label": "punctuation that must be escaped by consumers",
+      "code": "A&B<C>\"D'",
+      "note": "valid in V1: consumers must escape, never concatenate",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-14",
+      "label": "Unicode uppercase letters",
+      "code": "SUÍTE-VIEW",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-15",
+      "label": "lowercase letter",
+      "code": "dbl-sea",
+      "note": "V1 rejects; the public schema is a superset (server rejects)",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "uppercase"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-16",
+      "label": "mixed case",
+      "code": "Dbl-Sea",
+      "note": "V1 rejects; schema superset",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "uppercase"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-17",
+      "label": "lowercase non-ASCII",
+      "code": "SUÍTé",
+      "note": "V1 rejects; schema superset",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "uppercase"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-18",
+      "label": "inner space",
+      "code": "DBL SEA",
+      "note": "",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "whitespace"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": false
+      }
+    },
+    {
+      "id": "RTC-19",
+      "label": "tab",
+      "code": "DBL\tSEA",
+      "note": "",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "whitespace"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": false
+      }
+    },
+    {
+      "id": "RTC-20",
+      "label": "newline",
+      "code": "DBL\nSEA",
+      "note": "",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "whitespace"
+        ]
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": false
+      }
+    },
+    {
+      "id": "RTC-21",
+      "label": "no-break space U+00A0",
+      "code": "DBL SEA",
+      "note": "V1 DTO uses Java \\S (ASCII whitespace only); see database verdict",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-22",
+      "label": "em space U+2003",
+      "code": "DBL SEA",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-23",
+      "label": "title-case letter U+01C5",
+      "code": "ǅA",
+      "note": "DTO accepts (not Ll); database UPPER differs",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": false
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-24",
+      "label": "supplementary-plane uppercase U+1D400",
+      "code": "𝐀BC",
+      "note": "counts as 2 UTF-16 units in Java",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-25",
+      "label": "emoji U+1F600",
+      "code": "SUITE-😀",
+      "note": "",
+      "v1Dto": {
+        "valid": true,
+        "violations": []
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    },
+    {
+      "id": "RTC-26",
+      "label": "33 supplementary letters (66 UTF-16 units, 33 code points)",
+      "code": "𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀𝐀",
+      "note": "Java @Size counts UTF-16 units: V1 rejects; schema counts code points (superset)",
+      "v1Dto": {
+        "valid": false,
+        "violations": [
+          "max"
+        ]
+      },
+      "v1Database": {
+        "valid": true
+      },
+      "publicSchema": {
+        "valid": true
+      }
+    }
+  ]
+}

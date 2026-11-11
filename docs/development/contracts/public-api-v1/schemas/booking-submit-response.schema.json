@@ -1,0 +1,51 @@
+{
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "const": "CONFIRMED"
+        },
+        "reservationReference": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/reservationReference"
+        },
+        "totalAmount": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/money"
+        },
+        "currency": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/currency"
+        }
+      },
+      "required": [
+        "outcome",
+        "reservationReference",
+        "totalAmount",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "const": "PENDING_APPROVAL"
+        },
+        "reservationReference": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/reservationReference"
+        },
+        "expiresAt": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/instant"
+        }
+      },
+      "required": [
+        "outcome",
+        "reservationReference",
+        "expiresAt"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/booking-submit-response.schema.json",
+  "title": "booking-submit-response"
+}

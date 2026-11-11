@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "checkInDate": {
+      "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/date"
+    },
+    "checkOutDate": {
+      "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/date"
+    },
+    "adults": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "children": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 20
+    }
+  },
+  "required": [
+    "checkInDate",
+    "checkOutDate",
+    "adults",
+    "children"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/availability-search-request.schema.json",
+  "title": "availability-search-request"
+}

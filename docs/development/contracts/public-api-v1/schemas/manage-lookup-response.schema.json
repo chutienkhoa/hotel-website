@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "status": {
+      "const": "ACCEPTED"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/manage-lookup-response.schema.json",
+  "title": "manage-lookup-response"
+}

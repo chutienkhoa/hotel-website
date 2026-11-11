@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "currency": {
+      "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/currency"
+    },
+    "roomTypes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "roomTypeCode": {
+            "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/roomTypeCode"
+          },
+          "soldOut": {
+            "type": "boolean"
+          },
+          "availableQuantity": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "maxSelectable": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "nightlyBreakdown": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/nightlyRate"
+            }
+          },
+          "subtotal": {
+            "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/money"
+          }
+        },
+        "required": [
+          "roomTypeCode",
+          "soldOut",
+          "availableQuantity",
+          "maxSelectable",
+          "nightlyBreakdown",
+          "subtotal"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "currency",
+    "roomTypes"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/availability-search-response.schema.json",
+  "title": "availability-search-response"
+}

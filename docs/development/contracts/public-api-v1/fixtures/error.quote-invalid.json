@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "QUOTE_INVALID",
+    "message": "Báo giá không khớp với yêu cầu.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "POLICY_CHANGED",
+    "message": "Chính sách hủy đã thay đổi. Vui lòng xem lại điều khoản.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

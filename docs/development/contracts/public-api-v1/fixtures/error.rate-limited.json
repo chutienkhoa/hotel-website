@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "RATE_LIMITED",
+    "message": "Quá nhiều yêu cầu. Vui lòng thử lại sau.",
+    "retryable": true,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

@@ -1,0 +1,16 @@
+{
+  "error": {
+    "code": "INVALID_INPUT",
+    "message": "Dữ liệu không hợp lệ.",
+    "retryable": false,
+    "fields": [
+      {
+        "field": "checkInDate",
+        "code": "PAST_DATE",
+        "message": "Ngày nhận phòng không được ở quá khứ."
+      }
+    ],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "REQUEST_IN_PROGRESS",
+    "message": "Yêu cầu đang được xử lý.",
+    "retryable": true,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

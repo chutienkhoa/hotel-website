@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "IDEMPOTENCY_KEY_REUSED",
+    "message": "Khóa này đã được dùng cho một yêu cầu khác.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

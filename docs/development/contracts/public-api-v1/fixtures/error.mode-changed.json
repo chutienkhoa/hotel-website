@@ -1,0 +1,12 @@
+{
+  "error": {
+    "code": "MODE_CHANGED",
+    "message": "Chế độ đặt phòng đã thay đổi.",
+    "retryable": false,
+    "fields": [],
+    "details": {
+      "currentMode": "REQUEST"
+    }
+  },
+  "requestId": "req-9d2f0c"
+}

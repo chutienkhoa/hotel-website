@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "BOOKING_NOT_FOUND",
+    "message": "Không tìm thấy đặt phòng.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

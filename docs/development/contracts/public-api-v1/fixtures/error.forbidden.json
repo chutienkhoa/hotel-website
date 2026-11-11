@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "FORBIDDEN",
+    "message": "Không có quyền thực hiện thao tác này.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

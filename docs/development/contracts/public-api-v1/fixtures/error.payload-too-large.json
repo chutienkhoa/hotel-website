@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "PAYLOAD_TOO_LARGE",
+    "message": "Nội dung yêu cầu quá lớn.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

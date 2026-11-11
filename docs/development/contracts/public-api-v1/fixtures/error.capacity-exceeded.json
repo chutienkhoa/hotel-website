@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "CAPACITY_EXCEEDED",
+    "message": "Số khách vượt sức chứa của các phòng đã chọn.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

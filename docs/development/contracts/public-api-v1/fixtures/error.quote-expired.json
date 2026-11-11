@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "QUOTE_EXPIRED",
+    "message": "Báo giá đã hết hạn.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

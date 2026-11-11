@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "roomType": {
+      "type": "object",
+      "properties": {
+        "roomTypeCode": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/roomTypeCode"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "amenities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/image"
+          }
+        }
+      },
+      "required": [
+        "roomTypeCode",
+        "slug",
+        "name",
+        "description",
+        "capacity",
+        "amenities",
+        "gallery"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "roomType"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/room-type-detail.schema.json",
+  "title": "room-type-detail"
+}

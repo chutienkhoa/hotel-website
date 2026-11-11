@@ -1,0 +1,24 @@
+{
+  "roomType": {
+    "roomTypeCode": "DBL-SEA",
+    "slug": "deluxe-double",
+    "name": "Deluxe Double",
+    "description": "Phòng 32 m², ban công.",
+    "capacity": 2,
+    "amenities": [
+      "WIFI",
+      "AIR_CONDITIONING"
+    ],
+    "gallery": [
+      {
+        "imageId": "a1b2c3d4-0000-4000-8000-000000000001",
+        "altText": "Phòng Deluxe hướng biển",
+        "isCover": true,
+        "displayOrder": 0,
+        "contentVersion": 2,
+        "width": 1600,
+        "height": 1067
+      }
+    ]
+  }
+}

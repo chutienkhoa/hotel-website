@@ -1,0 +1,16 @@
+{
+  "checkInDate": "2026-09-30",
+  "checkOutDate": "2026-10-03",
+  "adults": 2,
+  "children": 0,
+  "rooms": [
+    {
+      "roomTypeCode": "A",
+      "quantity": 1
+    },
+    {
+      "roomTypeCode": "SUITE-0123456789012345678901234567890123456789012345678901234567",
+      "quantity": 1
+    }
+  ]
+}

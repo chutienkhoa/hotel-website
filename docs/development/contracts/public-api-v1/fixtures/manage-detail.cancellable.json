@@ -1,0 +1,21 @@
+{
+  "booking": {
+    "reference": "7K3M9Q2XDA",
+    "status": "CONFIRMED",
+    "checkInDate": "2026-09-30",
+    "checkOutDate": "2026-10-03",
+    "rooms": [
+      {
+        "roomTypeName": "Deluxe Double",
+        "quantity": 1
+      }
+    ],
+    "totalAmount": "3300000",
+    "currency": "VND",
+    "cancellation": {
+      "available": true,
+      "freeUntil": "2026-09-29T07:00:00Z",
+      "policyText": "Hủy miễn phí đến 24 giờ trước giờ nhận phòng tiêu chuẩn. Sau thời điểm đó, vui lòng liên hệ khách sạn."
+    }
+  }
+}

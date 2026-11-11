@@ -1,0 +1,34 @@
+{
+  "quote": {
+    "quoteId": "3f1b6d2e-8a4c-4e57-9b0a-2c5d7e1f4a90",
+    "currency": "VND",
+    "total": "3300000",
+    "bookingMode": "INSTANT",
+    "cancellationPolicy": {
+      "revision": 3,
+      "freeCancellationHours": 24,
+      "text": "Hủy miễn phí đến 24 giờ trước giờ nhận phòng tiêu chuẩn. Sau thời điểm đó, vui lòng liên hệ khách sạn."
+    },
+    "rooms": [
+      {
+        "roomTypeCode": "DBL-SEA",
+        "quantity": 1,
+        "nightlyBreakdown": [
+          {
+            "date": "2026-09-30",
+            "rate": "900000"
+          },
+          {
+            "date": "2026-10-01",
+            "rate": "1200000"
+          },
+          {
+            "date": "2026-10-02",
+            "rate": "1200000"
+          }
+        ]
+      }
+    ],
+    "expiresAt": "2026-09-01T10:15:00Z"
+  }
+}

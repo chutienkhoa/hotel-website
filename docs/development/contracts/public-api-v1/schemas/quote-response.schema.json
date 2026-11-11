@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "properties": {
+    "quote": {
+      "type": "object",
+      "properties": {
+        "quoteId": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/uuid"
+        },
+        "currency": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/currency"
+        },
+        "total": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/money"
+        },
+        "bookingMode": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/bookingMode"
+        },
+        "cancellationPolicy": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/cancellationPolicy"
+        },
+        "rooms": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "roomTypeCode": {
+                "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/roomTypeCode"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "nightlyBreakdown": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/nightlyRate"
+                }
+              }
+            },
+            "required": [
+              "roomTypeCode",
+              "quantity",
+              "nightlyBreakdown"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "expiresAt": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/instant"
+        }
+      },
+      "required": [
+        "quoteId",
+        "currency",
+        "total",
+        "bookingMode",
+        "cancellationPolicy",
+        "rooms",
+        "expiresAt"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "quote"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/quote-response.schema.json",
+  "title": "quote-response"
+}

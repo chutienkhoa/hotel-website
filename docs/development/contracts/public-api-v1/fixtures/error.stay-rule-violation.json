@@ -1,0 +1,13 @@
+{
+  "error": {
+    "code": "STAY_RULE_VIOLATION",
+    "message": "Thời gian lưu trú không đáp ứng quy tắc đặt phòng.",
+    "retryable": false,
+    "fields": [],
+    "details": {
+      "rule": "MIN_STAY",
+      "limit": 2
+    }
+  },
+  "requestId": "req-9d2f0c"
+}

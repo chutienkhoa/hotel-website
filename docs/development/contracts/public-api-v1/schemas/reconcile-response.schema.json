@@ -1,0 +1,422 @@
+{
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "state": {
+          "const": "PROCESSING"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "state": {
+          "const": "FAILED_RETRYABLE"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "state": {
+          "const": "NOT_FOUND"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "state": {
+          "const": "SUCCEEDED"
+        },
+        "response": {
+          "type": "object",
+          "properties": {
+            "httpStatus": {
+              "const": 201
+            },
+            "body": {
+              "$ref": "https://schemas.hotel.invalid/pms/public/v1/booking-submit-response.schema.json"
+            }
+          },
+          "required": [
+            "httpStatus",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "state",
+        "response"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "state": {
+          "const": "REJECTED"
+        },
+        "response": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 422
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "QUOTE_INVALID"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 409
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "QUOTE_EXPIRED"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 409
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "MODE_CHANGED"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 409
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "POLICY_CHANGED"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 409
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "PRICE_CHANGED"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 409
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "SOLD_OUT"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 422
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "CAPACITY_EXCEEDED"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 422
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "ROOM_TYPE_NOT_PUBLISHED"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "httpStatus": {
+                  "const": 422
+                },
+                "body": {
+                  "allOf": [
+                    {
+                      "$ref": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json"
+                    },
+                    {
+                      "properties": {
+                        "error": {
+                          "properties": {
+                            "code": {
+                              "const": "STAY_RULE_VIOLATION"
+                            }
+                          },
+                          "required": [
+                            "code"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "error"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "httpStatus",
+                "body"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "state",
+        "response"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/reconcile-response.schema.json",
+  "title": "reconcile-response"
+}

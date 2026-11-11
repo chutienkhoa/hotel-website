@@ -1,0 +1,19 @@
+{
+  "state": "REJECTED",
+  "response": {
+    "httpStatus": 409,
+    "body": {
+      "error": {
+        "code": "PRICE_CHANGED",
+        "message": "Giá đã thay đổi. Vui lòng xem lại và xác nhận.",
+        "retryable": false,
+        "fields": [],
+        "details": {
+          "newTotal": "3400000",
+          "currency": "VND"
+        }
+      },
+      "requestId": "req-2"
+    }
+  }
+}

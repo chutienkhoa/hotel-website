@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "reference": {
+      "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/reservationReference"
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^[^@\\s]+@[^@\\s]+$"
+    }
+  },
+  "required": [
+    "reference",
+    "email"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/manage-lookup-request.schema.json",
+  "title": "manage-lookup-request"
+}

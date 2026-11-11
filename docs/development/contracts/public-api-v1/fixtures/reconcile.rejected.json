@@ -1,0 +1,18 @@
+{
+  "state": "REJECTED",
+  "response": {
+    "httpStatus": 409,
+    "body": {
+      "error": {
+        "code": "SOLD_OUT",
+        "message": "Loại phòng đã hết.",
+        "retryable": false,
+        "fields": [],
+        "details": {
+          "roomTypeCode": "DBL-SEA"
+        }
+      },
+      "requestId": "req-1"
+    }
+  }
+}

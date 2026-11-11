@@ -1,0 +1,21 @@
+{
+  "booking": {
+    "reference": "7K3M9Q2XDA",
+    "status": "EXPIRED",
+    "checkInDate": "2026-09-30",
+    "checkOutDate": "2026-10-03",
+    "rooms": [
+      {
+        "roomTypeName": "Deluxe Double",
+        "quantity": 1
+      }
+    ],
+    "totalAmount": "3300000",
+    "currency": "VND",
+    "cancellation": {
+      "available": false,
+      "freeUntil": null,
+      "policyText": null
+    }
+  }
+}

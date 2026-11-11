@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "MANAGE_TOKEN_INVALID",
+    "message": "Liên kết không hợp lệ hoặc đã hết hạn.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

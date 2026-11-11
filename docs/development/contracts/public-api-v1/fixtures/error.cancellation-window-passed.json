@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "CANCELLATION_WINDOW_PASSED",
+    "message": "Đã quá thời hạn hủy miễn phí. Vui lòng liên hệ khách sạn.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

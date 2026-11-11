@@ -1,0 +1,16 @@
+{
+  "checkInDate": "2026-09-30",
+  "checkOutDate": "2026-10-03",
+  "adults": 2,
+  "children": 0,
+  "rooms": [
+    {
+      "roomTypeCode": "DBL-SEA",
+      "quantity": 1
+    },
+    {
+      "roomTypeCode": "DELUXE-OCEAN-VIEW-KING-BALCONY-SUITE-001",
+      "quantity": 2
+    }
+  ]
+}

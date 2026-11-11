@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Đã xảy ra lỗi. Vui lòng thử lại.",
+    "retryable": true,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

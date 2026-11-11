@@ -1,0 +1,18 @@
+{
+  "hotelName": "Sunrise Boutique Hotel",
+  "tagline": "",
+  "template": "modern-tropical",
+  "bookingEnabled": false,
+  "bookingMode": "INSTANT",
+  "contentVersion": 12,
+  "contact": {
+    "phone": "+842838000000",
+    "email": "hello@example.com",
+    "address": "1 Đường Biển, Nha Trang"
+  },
+  "cancellationPolicy": {
+    "revision": 3,
+    "freeCancellationHours": 24,
+    "text": "Hủy miễn phí đến 24 giờ trước giờ nhận phòng tiêu chuẩn. Sau thời điểm đó, vui lòng liên hệ khách sạn."
+  }
+}

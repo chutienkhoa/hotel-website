@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "CANCELLATION_NOT_AVAILABLE",
+    "message": "Không thể tự hủy đặt phòng này. Vui lòng liên hệ khách sạn.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

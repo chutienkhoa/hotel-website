@@ -1,0 +1,12 @@
+{
+  "error": {
+    "code": "BOOKING_UNAVAILABLE",
+    "message": "Hiện chưa nhận đặt phòng trực tuyến.",
+    "retryable": true,
+    "fields": [],
+    "details": {
+      "reason": "SOURCE_NOT_CONFIGURED"
+    }
+  },
+  "requestId": "req-9d2f0c"
+}

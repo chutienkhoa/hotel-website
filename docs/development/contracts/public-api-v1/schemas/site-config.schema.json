@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "hotelName": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "template": {
+      "type": "string"
+    },
+    "bookingEnabled": {
+      "type": "boolean"
+    },
+    "bookingMode": {
+      "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/bookingMode"
+    },
+    "contentVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "phone",
+        "email",
+        "address"
+      ],
+      "additionalProperties": false
+    },
+    "cancellationPolicy": {
+      "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/cancellationPolicy"
+    }
+  },
+  "required": [
+    "hotelName",
+    "tagline",
+    "template",
+    "bookingEnabled",
+    "bookingMode",
+    "contentVersion",
+    "contact",
+    "cancellationPolicy"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/site-config.schema.json",
+  "title": "site-config"
+}

@@ -1,0 +1,47 @@
+{
+  "currency": "VND",
+  "roomTypes": [
+    {
+      "roomTypeCode": "DBL-SEA",
+      "soldOut": false,
+      "availableQuantity": 3,
+      "maxSelectable": 3,
+      "nightlyBreakdown": [
+        {
+          "date": "2026-09-30",
+          "rate": "900000"
+        },
+        {
+          "date": "2026-10-01",
+          "rate": "1200000"
+        },
+        {
+          "date": "2026-10-02",
+          "rate": "1200000"
+        }
+      ],
+      "subtotal": "3300000"
+    },
+    {
+      "roomTypeCode": "DELUXE-OCEAN-VIEW-KING-BALCONY-SUITE-001",
+      "soldOut": true,
+      "availableQuantity": 0,
+      "maxSelectable": 0,
+      "nightlyBreakdown": [
+        {
+          "date": "2026-09-30",
+          "rate": "900000"
+        },
+        {
+          "date": "2026-10-01",
+          "rate": "1200000"
+        },
+        {
+          "date": "2026-10-02",
+          "rate": "1200000"
+        }
+      ],
+      "subtotal": "3300000"
+    }
+  ]
+}

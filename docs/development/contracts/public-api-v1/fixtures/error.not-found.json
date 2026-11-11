@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "Không tìm thấy.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

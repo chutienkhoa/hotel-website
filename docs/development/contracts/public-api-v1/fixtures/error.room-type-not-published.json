@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "ROOM_TYPE_NOT_PUBLISHED",
+    "message": "Loại phòng không được bán.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

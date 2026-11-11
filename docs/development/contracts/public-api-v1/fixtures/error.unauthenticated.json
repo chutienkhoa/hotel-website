@@ -1,0 +1,10 @@
+{
+  "error": {
+    "code": "UNAUTHENTICATED",
+    "message": "Thiếu hoặc sai khóa dịch vụ.",
+    "retryable": false,
+    "fields": [],
+    "details": {}
+  },
+  "requestId": "req-9d2f0c"
+}

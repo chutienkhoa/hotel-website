@@ -1,0 +1,12 @@
+{
+  "error": {
+    "code": "RESERVATION_NOT_CANCELLABLE",
+    "message": "Đặt phòng này không thể tự hủy.",
+    "retryable": false,
+    "fields": [],
+    "details": {
+      "status": "CHECKED_IN"
+    }
+  },
+  "requestId": "req-9d2f0c"
+}

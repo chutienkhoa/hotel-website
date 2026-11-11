@@ -1,0 +1,149 @@
+{
+  "$defs": {
+    "money": {
+      "type": "string",
+      "pattern": "^[0-9]+(\\.[0-9]{1,6})?$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "instant": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+    },
+    "currency": {
+      "enum": [
+        "VND",
+        "USD"
+      ]
+    },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "roomTypeCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[^ \\t\\n\\u000B\\f\\r]+$",
+      "description": "The immutable PMS V1 room_type.code, verbatim (RoomTypeCreateRequest: not blank, at most 64 characters, no whitespace, no lowercase letter). This schema is a deliberate superset of the V1 rule so that no valid existing code is rejected: it enforces length and ASCII whitespace only; the PMS applies the full V1 rule (including no lowercase) with exact-match lookup. Never put the code in a URL path or query: the public URL identifier is the slug."
+    },
+    "bookingMode": {
+      "enum": [
+        "INSTANT",
+        "REQUEST"
+      ]
+    },
+    "reservationReference": {
+      "type": "string",
+      "pattern": "^[0-9A-HJKMNP-TV-Z]{10}$"
+    },
+    "idempotencyKey": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._~-]{16,64}$"
+    },
+    "nightlyRate": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "rate": {
+          "$ref": "#/$defs/money"
+        }
+      },
+      "required": [
+        "date",
+        "rate"
+      ],
+      "additionalProperties": false
+    },
+    "basketLine": {
+      "type": "object",
+      "properties": {
+        "roomTypeCode": {
+          "$ref": "#/$defs/roomTypeCode"
+        },
+        "quantity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "required": [
+        "roomTypeCode",
+        "quantity"
+      ],
+      "additionalProperties": false
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "imageId": {
+          "$ref": "#/$defs/uuid"
+        },
+        "altText": {
+          "type": "string",
+          "maxLength": 255
+        },
+        "isCover": {
+          "type": "boolean"
+        },
+        "displayOrder": {
+          "type": "integer"
+        },
+        "contentVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "imageId",
+        "altText",
+        "isCover",
+        "displayOrder",
+        "contentVersion",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false
+    },
+    "cancellationPolicy": {
+      "type": "object",
+      "properties": {
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "freeCancellationHours": {
+          "enum": [
+            24,
+            48,
+            72
+          ]
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "revision",
+        "freeCancellationHours",
+        "text"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json",
+  "title": "common"
+}

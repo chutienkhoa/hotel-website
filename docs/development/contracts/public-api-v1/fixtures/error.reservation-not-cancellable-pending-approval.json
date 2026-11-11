@@ -1,0 +1,12 @@
+{
+  "error": {
+    "code": "RESERVATION_NOT_CANCELLABLE",
+    "message": "Yêu cầu đang chờ duyệt, vui lòng liên hệ khách sạn.",
+    "retryable": false,
+    "fields": [],
+    "details": {
+      "status": "PENDING_APPROVAL"
+    }
+  },
+  "requestId": "req-9d2f0c"
+}

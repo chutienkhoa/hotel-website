@@ -1,0 +1,499 @@
+[
+  {
+    "id": "NC-01",
+    "schema": "schemas/error-envelope.schema.json",
+    "reason": "PRICE_CHANGED without details.newTotal",
+    "payload": {
+      "error": {
+        "code": "PRICE_CHANGED",
+        "message": "x",
+        "retryable": false,
+        "fields": [],
+        "details": {}
+      },
+      "requestId": "r"
+    }
+  },
+  {
+    "id": "NC-02",
+    "schema": "schemas/error-envelope.schema.json",
+    "reason": "SOLD_OUT with retryable=true",
+    "payload": {
+      "error": {
+        "code": "SOLD_OUT",
+        "message": "x",
+        "retryable": true,
+        "fields": [],
+        "details": {
+          "roomTypeCode": "DBL-SEA"
+        }
+      },
+      "requestId": "r"
+    }
+  },
+  {
+    "id": "NC-03",
+    "schema": "schemas/error-envelope.schema.json",
+    "reason": "unknown error code",
+    "payload": {
+      "error": {
+        "code": "NOT_A_CODE",
+        "message": "x",
+        "retryable": false,
+        "fields": [],
+        "details": {}
+      },
+      "requestId": "r"
+    }
+  },
+  {
+    "id": "NC-04",
+    "schema": "schemas/booking-submit-response.schema.json",
+    "reason": "outcome ERROR inside a success response",
+    "payload": {
+      "outcome": "ERROR",
+      "error": {}
+    }
+  },
+  {
+    "id": "NC-05",
+    "schema": "schemas/booking-submit-request.schema.json",
+    "reason": "client-supplied nightlyRate",
+    "payload": {
+      "quoteId": "3f1b6d2e-8a4c-4e57-9b0a-2c5d7e1f4a90",
+      "checkInDate": "2026-09-30",
+      "checkOutDate": "2026-10-03",
+      "adults": 2,
+      "children": 0,
+      "bookingMode": "INSTANT",
+      "rooms": [
+        {
+          "roomTypeCode": "DBL-SEA",
+          "quantity": 1
+        }
+      ],
+      "acceptedCancellationPolicyRevision": 3,
+      "guest": {
+        "fullName": "Nguyễn Văn A",
+        "email": "guest@example.com",
+        "phone": "+84901234567"
+      },
+      "nightlyRate": "900000"
+    }
+  },
+  {
+    "id": "NC-06",
+    "schema": "schemas/manage-cancel-response.schema.json",
+    "reason": "ALREADY_CANCELLED is not an outcome",
+    "payload": {
+      "outcome": "ALREADY_CANCELLED"
+    }
+  },
+  {
+    "id": "NC-07",
+    "schema": "schemas/quote-response.schema.json",
+    "reason": "quoteId is not a UUID",
+    "payload": {
+      "quote": {
+        "quoteId": "not-a-uuid"
+      }
+    }
+  },
+  {
+    "id": "NC-08",
+    "schema": "schemas/quote-request.schema.json",
+    "reason": "roomTypeCode empty",
+    "payload": {
+      "checkInDate": "2026-09-30",
+      "checkOutDate": "2026-10-03",
+      "adults": 2,
+      "children": 0,
+      "rooms": [
+        {
+          "roomTypeCode": "",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "NC-09",
+    "schema": "schemas/quote-request.schema.json",
+    "reason": "roomTypeCode of 65 characters (V1 maximum is 64)",
+    "payload": {
+      "checkInDate": "2026-09-30",
+      "checkOutDate": "2026-10-03",
+      "adults": 2,
+      "children": 0,
+      "rooms": [
+        {
+          "roomTypeCode": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "NC-10",
+    "schema": "schemas/quote-request.schema.json",
+    "reason": "roomTypeCode contains a space",
+    "payload": {
+      "checkInDate": "2026-09-30",
+      "checkOutDate": "2026-10-03",
+      "adults": 2,
+      "children": 0,
+      "rooms": [
+        {
+          "roomTypeCode": "DBL SEA",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "NC-11",
+    "schema": "schemas/quote-request.schema.json",
+    "reason": "roomTypeCode contains a tab",
+    "payload": {
+      "checkInDate": "2026-09-30",
+      "checkOutDate": "2026-10-03",
+      "adults": 2,
+      "children": 0,
+      "rooms": [
+        {
+          "roomTypeCode": "DBL\tSEA",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "NC-12",
+    "schema": "schemas/quote-request.schema.json",
+    "reason": "roomTypeCode contains a newline",
+    "payload": {
+      "checkInDate": "2026-09-30",
+      "checkOutDate": "2026-10-03",
+      "adults": 2,
+      "children": 0,
+      "rooms": [
+        {
+          "roomTypeCode": "DBL\nSEA",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "NC-13",
+    "schema": "schemas/availability-search-response.schema.json",
+    "reason": "roomTypeCode empty in a response",
+    "payload": {
+      "currency": "VND",
+      "roomTypes": [
+        {
+          "roomTypeCode": "",
+          "soldOut": false,
+          "availableQuantity": 1,
+          "maxSelectable": 1,
+          "nightlyBreakdown": [
+            {
+              "date": "2026-09-30",
+              "rate": "900000"
+            },
+            {
+              "date": "2026-10-01",
+              "rate": "1200000"
+            },
+            {
+              "date": "2026-10-02",
+              "rate": "1200000"
+            }
+          ],
+          "subtotal": "3300000"
+        }
+      ]
+    }
+  },
+  {
+    "id": "NC-14",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "SUCCEEDED without response",
+    "payload": {
+      "state": "SUCCEEDED"
+    }
+  },
+  {
+    "id": "NC-15",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "PROCESSING with a response",
+    "payload": {
+      "state": "PROCESSING",
+      "response": {
+        "httpStatus": 201,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-16",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "NOT_FOUND with a response",
+    "payload": {
+      "state": "NOT_FOUND",
+      "response": {
+        "httpStatus": 201,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-17",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "FAILED_RETRYABLE with a response",
+    "payload": {
+      "state": "FAILED_RETRYABLE",
+      "response": {
+        "httpStatus": 201,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-18",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "SUCCEEDED carrying an error envelope",
+    "payload": {
+      "state": "SUCCEEDED",
+      "response": {
+        "httpStatus": 201,
+        "body": {
+          "error": {
+            "code": "SOLD_OUT",
+            "message": "x",
+            "retryable": false,
+            "fields": [],
+            "details": {
+              "roomTypeCode": "DBL-SEA"
+            }
+          },
+          "requestId": "r"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-19",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "REJECTED carrying a success body",
+    "payload": {
+      "state": "REJECTED",
+      "response": {
+        "httpStatus": 409,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-20",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "SUCCEEDED with HTTP status 200 (creation is 201)",
+    "payload": {
+      "state": "SUCCEEDED",
+      "response": {
+        "httpStatus": 200,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-21",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "SUCCEEDED body leaks an internal reservation UUID",
+    "payload": {
+      "state": "SUCCEEDED",
+      "response": {
+        "httpStatus": 201,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND",
+          "reservationId": "0b8f1e52-4c1d-4b53-9a3e-5d6f7a8b9c0d"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-22",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "SUCCEEDED body leaks reservation_number",
+    "payload": {
+      "state": "SUCCEEDED",
+      "response": {
+        "httpStatus": 201,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND",
+          "reservationNumber": "20260930-000123"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-23",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "SUCCEEDED body leaks the guest email",
+    "payload": {
+      "state": "SUCCEEDED",
+      "response": {
+        "httpStatus": 201,
+        "body": {
+          "outcome": "CONFIRMED",
+          "reservationReference": "7K3M9Q2XDA",
+          "totalAmount": "3300000",
+          "currency": "VND",
+          "guestEmail": "guest@example.com"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-24",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "REJECTED with INTERNAL_ERROR (infrastructure failures are FAILED_RETRYABLE)",
+    "payload": {
+      "state": "REJECTED",
+      "response": {
+        "httpStatus": 500,
+        "body": {
+          "error": {
+            "code": "INTERNAL_ERROR",
+            "message": "x",
+            "retryable": true,
+            "fields": [],
+            "details": {}
+          },
+          "requestId": "r"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-25",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "REJECTED SOLD_OUT with the wrong HTTP status 422",
+    "payload": {
+      "state": "REJECTED",
+      "response": {
+        "httpStatus": 422,
+        "body": {
+          "error": {
+            "code": "SOLD_OUT",
+            "message": "x",
+            "retryable": false,
+            "fields": [],
+            "details": {
+              "roomTypeCode": "DBL-SEA"
+            }
+          },
+          "requestId": "r"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-26",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "REJECTED with BOOKING_UNAVAILABLE (503 is FAILED_RETRYABLE)",
+    "payload": {
+      "state": "REJECTED",
+      "response": {
+        "httpStatus": 503,
+        "body": {
+          "error": {
+            "code": "BOOKING_UNAVAILABLE",
+            "message": "x",
+            "retryable": true,
+            "fields": [],
+            "details": {
+              "reason": "SOURCE_NOT_CONFIGURED"
+            }
+          },
+          "requestId": "r"
+        }
+      }
+    }
+  },
+  {
+    "id": "NC-27",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "unknown state",
+    "payload": {
+      "state": "DONE"
+    }
+  },
+  {
+    "id": "NC-28",
+    "schema": "schemas/reconcile-response.schema.json",
+    "reason": "top-level reservationId",
+    "payload": {
+      "state": "NOT_FOUND",
+      "reservationId": "0b8f1e52-4c1d-4b53-9a3e-5d6f7a8b9c0d"
+    }
+  },
+  {
+    "id": "NC-29",
+    "schema": "schemas/manage-cancel-response.schema.json",
+    "reason": "replayed flag in the body (header-only metadata)",
+    "payload": {
+      "outcome": "CANCELLED",
+      "replayed": true
+    }
+  },
+  {
+    "id": "NC-30",
+    "schema": "schemas/booking-submit-response.schema.json",
+    "reason": "replayed flag in the body (header-only metadata)",
+    "payload": {
+      "outcome": "CONFIRMED",
+      "reservationReference": "7K3M9Q2XDA",
+      "totalAmount": "3300000",
+      "currency": "VND",
+      "replayed": true
+    }
+  },
+  {
+    "id": "NC-31",
+    "schema": "schemas/manage-cancel-response.schema.json",
+    "reason": "missing outcome",
+    "payload": {}
+  }
+]

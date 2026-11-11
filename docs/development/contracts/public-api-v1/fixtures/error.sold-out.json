@@ -1,0 +1,12 @@
+{
+  "error": {
+    "code": "SOLD_OUT",
+    "message": "Loại phòng đã chọn không còn trống cho khoảng ngày này.",
+    "retryable": false,
+    "fields": [],
+    "details": {
+      "roomTypeCode": "DBL-SEA"
+    }
+  },
+  "requestId": "req-9d2f0c"
+}

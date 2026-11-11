@@ -1,0 +1,304 @@
+[
+  {
+    "fixture": "fixtures/site-config.ok.json",
+    "schema": "schemas/site-config.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/site-config.booking-disabled.json",
+    "schema": "schemas/site-config.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/room-types.ok.json",
+    "schema": "schemas/room-type-list.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/room-type-detail.ok.json",
+    "schema": "schemas/room-type-detail.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/availability-search.request.json",
+    "schema": "schemas/availability-search-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/availability-search.ok.json",
+    "schema": "schemas/availability-search-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/quote.request.json",
+    "schema": "schemas/quote-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/quote.ok.json",
+    "schema": "schemas/quote-response.schema.json",
+    "httpStatus": 201
+  },
+  {
+    "fixture": "fixtures/booking-submit.request.json",
+    "schema": "schemas/booking-submit-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/booking-submit.request-mode-request.json",
+    "schema": "schemas/booking-submit-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/booking-submit.confirmed.json",
+    "schema": "schemas/booking-submit-response.schema.json",
+    "httpStatus": 201
+  },
+  {
+    "fixture": "fixtures/booking-submit.pending-approval.json",
+    "schema": "schemas/booking-submit-response.schema.json",
+    "httpStatus": 201
+  },
+  {
+    "fixture": "fixtures/reconcile.succeeded.json",
+    "schema": "schemas/reconcile-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/reconcile.rejected.json",
+    "schema": "schemas/reconcile-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/reconcile.processing.json",
+    "schema": "schemas/reconcile-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/reconcile.failed-retryable.json",
+    "schema": "schemas/reconcile-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/reconcile.not-found.json",
+    "schema": "schemas/reconcile-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/manage-lookup.request.json",
+    "schema": "schemas/manage-lookup-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/manage-lookup.accepted.json",
+    "schema": "schemas/manage-lookup-response.schema.json",
+    "httpStatus": 202
+  },
+  {
+    "fixture": "fixtures/manage-exchange.request.json",
+    "schema": "schemas/manage-exchange-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/manage-exchange.ok.json",
+    "schema": "schemas/manage-exchange-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/manage-detail.cancellable.json",
+    "schema": "schemas/manage-detail-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/manage-detail.legacy-no-snapshot.json",
+    "schema": "schemas/manage-detail-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/manage-detail.pending-approval.json",
+    "schema": "schemas/manage-detail-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/manage-detail.expired.json",
+    "schema": "schemas/manage-detail-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/error.reservation-not-cancellable-pending-approval.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/manage-cancel.ok.json",
+    "schema": "schemas/manage-cancel-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/quote.request.v1-code-compat.json",
+    "schema": "schemas/quote-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/quote.request.code-boundaries.json",
+    "schema": "schemas/quote-request.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/reconcile.succeeded.pending-approval.json",
+    "schema": "schemas/reconcile-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/reconcile.rejected.price-changed.json",
+    "schema": "schemas/reconcile-response.schema.json",
+    "httpStatus": 200
+  },
+  {
+    "fixture": "fixtures/error.invalid-input.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 400
+  },
+  {
+    "fixture": "fixtures/error.unauthenticated.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 401
+  },
+  {
+    "fixture": "fixtures/error.forbidden.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 403
+  },
+  {
+    "fixture": "fixtures/error.not-found.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 404
+  },
+  {
+    "fixture": "fixtures/error.booking-not-found.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 404
+  },
+  {
+    "fixture": "fixtures/error.sold-out.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.price-changed.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.mode-changed.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.policy-changed.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.quote-expired.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.idempotency-key-reused.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.request-in-progress.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.reservation-not-cancellable.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.cancellation-window-passed.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.cancellation-not-available.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 409
+  },
+  {
+    "fixture": "fixtures/error.manage-token-invalid.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 410
+  },
+  {
+    "fixture": "fixtures/error.payload-too-large.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 413
+  },
+  {
+    "fixture": "fixtures/error.quote-invalid.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 422
+  },
+  {
+    "fixture": "fixtures/error.room-type-not-published.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 422
+  },
+  {
+    "fixture": "fixtures/error.capacity-exceeded.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 422
+  },
+  {
+    "fixture": "fixtures/error.stay-rule-violation.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 422
+  },
+  {
+    "fixture": "fixtures/error.rate-limited.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 429
+  },
+  {
+    "fixture": "fixtures/error.internal-error.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 500
+  },
+  {
+    "fixture": "fixtures/error.booking-unavailable.json",
+    "schema": "schemas/error-envelope.schema.json",
+    "httpStatus": 503
+  },
+  {
+    "fixture": "fixtures/booking-submit.confirmed.json",
+    "schema": "schemas/booking-submit-response.schema.json",
+    "httpStatus": 201,
+    "scenario": "REPLAY",
+    "responseHeaders": {
+      "Idempotency-Replayed": "true"
+    }
+  },
+  {
+    "fixture": "fixtures/booking-submit.pending-approval.json",
+    "schema": "schemas/booking-submit-response.schema.json",
+    "httpStatus": 201,
+    "scenario": "REPLAY",
+    "responseHeaders": {
+      "Idempotency-Replayed": "true"
+    }
+  },
+  {
+    "fixture": "fixtures/manage-cancel.ok.json",
+    "schema": "schemas/manage-cancel-response.schema.json",
+    "httpStatus": 200,
+    "scenario": "REPLAY",
+    "responseHeaders": {
+      "Idempotency-Replayed": "true"
+    }
+  }
+]

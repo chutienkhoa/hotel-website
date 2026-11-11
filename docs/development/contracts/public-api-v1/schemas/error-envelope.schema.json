@@ -1,0 +1,1039 @@
+{
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "enum": [
+            "INVALID_INPUT",
+            "UNAUTHENTICATED",
+            "FORBIDDEN",
+            "NOT_FOUND",
+            "BOOKING_NOT_FOUND",
+            "SOLD_OUT",
+            "PRICE_CHANGED",
+            "MODE_CHANGED",
+            "POLICY_CHANGED",
+            "QUOTE_EXPIRED",
+            "IDEMPOTENCY_KEY_REUSED",
+            "REQUEST_IN_PROGRESS",
+            "RESERVATION_NOT_CANCELLABLE",
+            "CANCELLATION_WINDOW_PASSED",
+            "CANCELLATION_NOT_AVAILABLE",
+            "MANAGE_TOKEN_INVALID",
+            "PAYLOAD_TOO_LARGE",
+            "QUOTE_INVALID",
+            "ROOM_TYPE_NOT_PUBLISHED",
+            "CAPACITY_EXCEEDED",
+            "STAY_RULE_VIOLATION",
+            "RATE_LIMITED",
+            "INTERNAL_ERROR",
+            "BOOKING_UNAVAILABLE"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "field",
+              "code",
+              "message"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "details": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "retryable",
+        "fields",
+        "details"
+      ],
+      "additionalProperties": false
+    },
+    "requestId": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "error",
+    "requestId"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "SOLD_OUT"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "details": {
+                "type": "object",
+                "properties": {
+                  "roomTypeCode": {
+                    "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/roomTypeCode"
+                  }
+                },
+                "required": [
+                  "roomTypeCode"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "details"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "PRICE_CHANGED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "details": {
+                "type": "object",
+                "properties": {
+                  "newTotal": {
+                    "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/money"
+                  },
+                  "currency": {
+                    "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/currency"
+                  }
+                },
+                "required": [
+                  "newTotal",
+                  "currency"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "details"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "MODE_CHANGED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "details": {
+                "type": "object",
+                "properties": {
+                  "currentMode": {
+                    "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/bookingMode"
+                  }
+                },
+                "required": [
+                  "currentMode"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "details"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "RESERVATION_NOT_CANCELLABLE"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "details": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "details"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "STAY_RULE_VIOLATION"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "details": {
+                "type": "object",
+                "properties": {
+                  "rule": {
+                    "enum": [
+                      "MIN_STAY",
+                      "MAX_STAY",
+                      "LEAD_TIME",
+                      "PAST_DATE",
+                      "MAX_ROOMS"
+                    ]
+                  },
+                  "limit": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "rule",
+                  "limit"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "details"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "BOOKING_UNAVAILABLE"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "details": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "enum": [
+                      "SOURCE_NOT_CONFIGURED",
+                      "BOOKING_DISABLED"
+                    ]
+                  }
+                },
+                "required": [
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "details"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "enum": [
+                  "INVALID_INPUT",
+                  "UNAUTHENTICATED",
+                  "FORBIDDEN",
+                  "NOT_FOUND",
+                  "BOOKING_NOT_FOUND",
+                  "POLICY_CHANGED",
+                  "QUOTE_EXPIRED",
+                  "IDEMPOTENCY_KEY_REUSED",
+                  "REQUEST_IN_PROGRESS",
+                  "CANCELLATION_WINDOW_PASSED",
+                  "CANCELLATION_NOT_AVAILABLE",
+                  "MANAGE_TOKEN_INVALID",
+                  "PAYLOAD_TOO_LARGE",
+                  "QUOTE_INVALID",
+                  "ROOM_TYPE_NOT_PUBLISHED",
+                  "CAPACITY_EXCEEDED",
+                  "RATE_LIMITED",
+                  "INTERNAL_ERROR"
+                ]
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "details": {
+                "type": "object",
+                "maxProperties": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "INVALID_INPUT"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "UNAUTHENTICATED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "FORBIDDEN"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "NOT_FOUND"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "BOOKING_NOT_FOUND"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "SOLD_OUT"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "PRICE_CHANGED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "MODE_CHANGED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "POLICY_CHANGED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "QUOTE_EXPIRED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "IDEMPOTENCY_KEY_REUSED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "REQUEST_IN_PROGRESS"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "RESERVATION_NOT_CANCELLABLE"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "CANCELLATION_WINDOW_PASSED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "CANCELLATION_NOT_AVAILABLE"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "MANAGE_TOKEN_INVALID"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "PAYLOAD_TOO_LARGE"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "QUOTE_INVALID"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "ROOM_TYPE_NOT_PUBLISHED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "CAPACITY_EXCEEDED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "STAY_RULE_VIOLATION"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "RATE_LIMITED"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "INTERNAL_ERROR"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "const": "BOOKING_UNAVAILABLE"
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "properties": {
+              "retryable": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/error-envelope.schema.json",
+  "title": "error-envelope"
+}

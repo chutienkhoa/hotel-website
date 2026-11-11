@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "booking": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/reservationReference"
+        },
+        "status": {
+          "enum": [
+            "PENDING_APPROVAL",
+            "CONFIRMED",
+            "CANCELLED",
+            "REJECTED",
+            "EXPIRED",
+            "CHECKED_IN",
+            "CHECKED_OUT",
+            "NO_SHOW"
+          ]
+        },
+        "checkInDate": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/date"
+        },
+        "checkOutDate": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/date"
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "roomTypeName": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "roomTypeName",
+              "quantity"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "totalAmount": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/money"
+        },
+        "currency": {
+          "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/currency"
+        },
+        "cancellation": {
+          "type": "object",
+          "properties": {
+            "available": {
+              "type": "boolean"
+            },
+            "freeUntil": {
+              "oneOf": [
+                {
+                  "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/instant"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "policyText": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "available",
+            "freeUntil",
+            "policyText"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "reference",
+        "status",
+        "checkInDate",
+        "checkOutDate",
+        "rooms",
+        "totalAmount",
+        "currency",
+        "cancellation"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "booking"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/manage-detail-response.schema.json",
+  "title": "manage-detail-response"
+}

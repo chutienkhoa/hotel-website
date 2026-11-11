@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "sessionToken": {
+      "type": "string",
+      "minLength": 22
+    },
+    "expiresAt": {
+      "$ref": "https://schemas.hotel.invalid/pms/public/v1/common.schema.json#/$defs/instant"
+    }
+  },
+  "required": [
+    "sessionToken",
+    "expiresAt"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.hotel.invalid/pms/public/v1/manage-exchange-response.schema.json",
+  "title": "manage-exchange-response"
+}
